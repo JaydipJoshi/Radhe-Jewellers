@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brand palette — Radhe Jewellers (Showroom: cream walls, pastel blue, warm wood) */
+    --background: 36 30% 95%;          /* warm cream wall */
+    --foreground: 30 18% 14%;          /* deep warm charcoal */
+
+    --card: 0 0% 100%;
+    --card-foreground: 30 18% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 30 18% 14%;
+
+    --primary: 205 32% 72%;            /* pastel showroom blue */
+    --primary-foreground: 30 25% 16%;
+
+    --secondary: 30 35% 88%;           /* soft warm wood tint */
+    --secondary-foreground: 30 18% 14%;
+
+    --muted: 36 22% 91%;
+    --muted-foreground: 30 10% 38%;
+
+    --accent: 32 38% 58%;              /* warm wood accent */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 22% 82%;              /* warm subtle border */
+    --input: 30 20% 86%;
+    --ring: 205 32% 65%;
+
+    --whatsapp: 142 70% 45%;
+    --whatsapp-foreground: 0 0% 100%;
+
+    --radius: 0.625rem;
+
+    --shadow-soft: 0 4px 24px -8px hsl(0 0% 10% / 0.08);
+    --shadow-card: 0 8px 30px -12px hsl(0 0% 10% / 0.12);
+    --shadow-elevated: 0 20px 50px -20px hsl(0 0% 10% / 0.18);
+
+    --gradient-hero: linear-gradient(180deg, hsl(36 17% 97% / 0) 0%, hsl(36 17% 97% / 0.6) 70%, hsl(36 17% 97%) 100%);
+
+    --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-feature-settings: 'ss01', 'cv11';
+  }
+  h1, h2, h3, h4, h5, .font-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer utilities {
+  .container-luxe {
+    @apply mx-auto px-6 md:px-10 lg:px-16 max-w-7xl;
+  }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-card { box-shadow: var(--shadow-card); }
+  .shadow-elevated { box-shadow: var(--shadow-elevated); }
+  .text-balance { text-wrap: balance; }
+  .hairline { @apply h-px w-12 bg-foreground/30; }
+
+  /* PERFORMANCE: Skip rendering off-screen sections entirely until scrolled near.
+     Apply to major below-fold sections for faster initial paint. */
+  .cv-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 400px; /* hint height to avoid layout shift */
+  }
+
+  /* PERFORMANCE: GPU-hint for elements that will animate */
+  .will-animate {
+    will-change: transform, opacity;
+  }
+
+  /* PERFORMANCE: Stop animations on low-end / battery-saving devices */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* PERFORMANCE: Images are block by default to prevent inline spacing reflow */
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+}
+

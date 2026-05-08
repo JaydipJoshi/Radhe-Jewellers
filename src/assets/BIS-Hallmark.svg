@@ -1,0 +1,10 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 441.18 500">
+  <defs><style>.cls-1{fill:#2a58a3;}.cls-1,.cls-2{fill-rule:evenodd;}.cls-2{fill:#e6363b;}</style></defs>
+  <title>BIS-Hallmark</title>
+  <path class="cls-1" d="M220.94,66.67c3.07,0,6.89,1.53,11.49,6.12l89.62,89.61c14.54,14.56,6.12,26-13,24.51H220.94l52.85,54.38H386.38c34.47,1.53,62-30.64,27.58-63.57l-157-156.26C243.87,8.43,232.43,0,220.94,0s-23,8.43-36,21.46l-157,156.25c-34.46,32.93-6.9,65.1,27.57,63.56H168.09l52.85-54.37H132.86c-19.15,1.53-27.58-10-13-24.51l89.61-89.6c4.59-4.59,8.43-6.12,11.49-6.12"/>
+  <path class="cls-2" d="M220.4,118.92a32.56,32.56,0,1,1-32.54,32.58v0a32.56,32.56,0,0,1,32.54-32.55"/>
+  <path class="cls-1" d="M220.59,300H385.26c26.81-.77,33.71-7.66,55.92-51.32-30.64,29.1-37.53,30.63-55.92,30.63H55.92c-18.38,0-25.28-1.53-55.92-30.63C22.21,292.34,29.11,299.23,55.92,300Z"/>
+  <text x="220.59" y="380" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="80" fill="#000" text-anchor="middle" letter-spacing="1">BIS</text>
+  <text x="220.59" y="440" font-family="Georgia, 'Times New Roman', serif" font-weight="bold" font-size="44" fill="#000" text-anchor="middle">100% Hall Marked</text>
+  <text x="220.59" y="490" font-family="Georgia, 'Times New Roman', serif" font-weight="bold" font-size="44" fill="#000" text-anchor="middle">Jewellery</text>
+</svg>
