@@ -15,15 +15,17 @@ const CollectionPage = () => {
 
   const filtered = useMemo(() => {
     if (active !== "All") return products.filter(p => p.category === active);
-    const gold = products.filter(p => p.category === "Gold").slice(0, 3);
-    const silver = products.filter(p => p.category === "Silver").slice(0, 3);
-    const plated = products.filter(p => p.category === "1gm Gold Plated").slice(0, 3);
-    // Interleave: G, P, S, G, P, S, G, P, S
-    const mixed = [];
-    for (let i = 0; i < 3; i++) {
-      mixed.push(gold[i], plated[i], silver[i]);
-    }
-    return mixed;
+    // Show 3 Gold, 3 Silver, 2 × 92.5 Silver, 2 × 1gm Gold Plated interleaved
+    const gold    = products.filter(p => p.category === "Gold").slice(0, 3);
+    const silver  = products.filter(p => p.category === "Silver").slice(0, 3);
+    const s925    = products.filter(p => p.category === "92.5 Silver").slice(0, 2);
+    const plated  = products.filter(p => p.category === "1gm Gold Plated").slice(0, 2);
+    // Interleave across four categories for a visually balanced showcase
+    return [
+      gold[0],   silver[0],  s925[0],   plated[0],
+      gold[1],   silver[1],  s925[1],   plated[1],
+      gold[2],   silver[2],
+    ].filter(Boolean);
   }, [active]);
 
   const setCategory = (c: string) => {

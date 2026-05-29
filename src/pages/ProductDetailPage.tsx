@@ -58,10 +58,12 @@ const ProductDetailPage = () => {
           <p className="text-muted-foreground mt-5 leading-relaxed">{product.details}</p>
 
           <dl className="mt-8 grid grid-cols-2 gap-y-4 text-sm border-y border-border/60 py-6">
-            {product.weight && (<>
-              <dt className="text-muted-foreground">Approx. weight</dt>
-              <dd>{product.weight}</dd>
-            </>)}
+            <dt className="text-muted-foreground">Weight</dt>
+            <dd>
+              <Link to="/contact" className="underline underline-offset-2 hover:text-foreground transition-colors">
+                Visit us to know
+              </Link>
+            </dd>
             {product.priceRange && (<>
               <dt className="text-muted-foreground">Price</dt>
               <dd>{product.priceRange}</dd>

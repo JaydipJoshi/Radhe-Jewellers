@@ -8,14 +8,16 @@ import { categories } from "@/data/products";
 import ProductCard from "@/components/site/ProductCard";
 import SectionHeading from "@/components/site/SectionHeading";
 import { whatsappLink, ADDRESS } from "@/lib/whatsapp";
-import goldImg from "@/assets/cat-bangles.jpg";
-import silverImg from "@/assets/cat-earrings.jpg";
-import platedImg from "@/assets/cat-necklaces.jpg";
+import goldImg   from "@/assets/Gold photos/gold 1.jpg";
+import silverImg from "@/assets/Silver photos/silver 1.jpg";
+import s925Img   from "@/assets/92.5 Silver/92.5  photo1.jpg";
+import platedImg from "@/assets/1gm gold plated/cat-necklaces.jpg";
 import bisLogo from "@/assets/BIS-Hallmark.svg";
 
 const categoryCards = [
-  { name: "Gold", image: goldImg },
-  { name: "Silver", image: silverImg },
+  { name: "Gold",           image: goldImg },
+  { name: "Silver",         image: silverImg },
+  { name: "92.5 Silver",    image: s925Img },
   { name: "1gm Gold Plated", image: platedImg },
 ];
 
@@ -33,10 +35,10 @@ const testimonials = [
 
 const HomePage = () => {
   const featured = [
-    products.find((p) => p.id === "plated-pendant-set")!,
-    products.find((p) => p.id === "plated-statement-ring")!,
-    products.find((p) => p.id === "classic-gold-bangle")!,
-    products.find((p) => p.id === "silver-drop-earrings")!,
+    products.find((p) => p.id === "gold-bangle-set")!,
+    products.find((p) => p.id === "silver-necklace-set")!,
+    products.find((p) => p.id === "925-silver-photo1")!,
+    products.find((p) => p.id === "plated-bangles")!,
   ];
 
   return (
@@ -120,7 +122,7 @@ const HomePage = () => {
             title="Find your forever piece"
             subtitle="Curated categories for every chapter of your story."
           />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-7 mt-14">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-7 mt-14">
             {categoryCards.map((cat, i) => (
               <motion.div
                 key={cat.name}
