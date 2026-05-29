@@ -35,10 +35,10 @@ const testimonials = [
 
 const HomePage = () => {
   const featured = [
-    products.find((p) => p.id === "gold-bangle-set")!,
-    products.find((p) => p.id === "silver-necklace-set")!,
-    products.find((p) => p.id === "925-silver-photo1")!,
-    products.find((p) => p.id === "plated-bangles")!,
+    products.find((p) => p.id === "gold-ruby-halo-ring")!,
+    products.find((p) => p.id === "silver-rajputana-payal-toe-rings")!,
+    products.find((p) => p.id === "925-princess-cut-bracelet")!,
+    products.find((p) => p.id === "plated-pendant-set")!,
   ];
 
   return (
