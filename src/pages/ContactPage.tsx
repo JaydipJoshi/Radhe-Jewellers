@@ -8,7 +8,7 @@ const ContactPage = () => {
       <section className="container-luxe pt-14 md:pt-20 pb-10 max-w-2xl">
         <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
           <span className="text-[11px] uppercase tracking-[0.32em] text-muted-foreground">Contact</span>
-          <h1 className="font-serif text-4xl md:text-5xl mt-4 leading-tight">We're here, in Palanpur.</h1>
+          <h1 className="font-serif text-4xl md:text-5xl mt-4 leading-tight">We're here, in Ahmedabad.</h1>
           <p className="text-muted-foreground mt-5 leading-relaxed">
             Visit our boutique, give us a ring, or message us on WhatsApp — whichever feels easiest.
           </p>
