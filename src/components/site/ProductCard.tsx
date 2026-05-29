@@ -25,9 +25,7 @@ const ProductCard = ({ product, index = 0 }: { product: Product; index?: number 
           height={960}
           className="h-full w-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.05]"
         />
-        <span className="absolute top-3 left-3 text-[10px] uppercase tracking-[0.22em] bg-card/85 backdrop-blur px-2.5 py-1 rounded-full text-muted-foreground">
-          {product.category}
-        </span>
+
       </Link>
       <div className="pt-5 flex flex-col gap-2">
         <Link to={`/product/${product.id}`}>
