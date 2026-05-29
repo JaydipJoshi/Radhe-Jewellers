@@ -14,18 +14,8 @@ const CollectionPage = () => {
   }, [params]);
 
   const filtered = useMemo(() => {
-    if (active !== "All") return products.filter(p => p.category === active);
-    // Show 3 Gold, 3 Silver, 2 × 92.5 Silver, 2 × 1gm Gold Plated interleaved
-    const gold    = products.filter(p => p.category === "Gold").slice(0, 3);
-    const silver  = products.filter(p => p.category === "Silver").slice(0, 3);
-    const s925    = products.filter(p => p.category === "92.5 Silver").slice(0, 2);
-    const plated  = products.filter(p => p.category === "1gm Gold Plated").slice(0, 2);
-    // Interleave across four categories for a visually balanced showcase
-    return [
-      gold[0],   silver[0],  s925[0],   plated[0],
-      gold[1],   silver[1],  s925[1],   plated[1],
-      gold[2],   silver[2],
-    ].filter(Boolean);
+    if (active === "All") return products;
+    return products.filter(p => p.category === active);
   }, [active]);
 
   const setCategory = (c: string) => {
@@ -66,7 +56,7 @@ const CollectionPage = () => {
           ))}
         </div>
 
-        <div className={`grid ${active === "All" ? "grid-cols-3" : "grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"} gap-6 md:gap-8 pb-20`}>
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 pb-20">
           {filtered.map((p, i) => <ProductCard key={p.id} product={p} index={i} />)}
         </div>
       </section>
