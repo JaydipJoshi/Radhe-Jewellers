@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Product } from "@/data/products";
 import { whatsappLink } from "@/lib/whatsapp";
 import { MessageCircle } from "lucide-react";
+import ImageWithSkeleton from "@/components/site/ImageWithSkeleton";
 
 const ProductCard = ({ product, index = 0 }: { product: Product; index?: number }) => {
   return (
@@ -17,16 +18,17 @@ const ProductCard = ({ product, index = 0 }: { product: Product; index?: number 
         to={`/product/${product.id}`}
         className="relative overflow-hidden rounded-xl bg-secondary aspect-[4/5] block"
       >
-        <img
+        <ImageWithSkeleton
           src={product.image}
           alt={product.name}
           loading="lazy"
           width={768}
           height={960}
-          className="h-full w-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.05]"
+          className="transition-transform duration-[1.4s] ease-out group-hover:scale-[1.05]"
         />
-
       </Link>
+
+      {/* Text info */}
       <div className="pt-5 flex flex-col gap-2">
         <Link to={`/product/${product.id}`}>
           <h3 className="font-serif text-lg leading-tight hover:text-primary transition-colors">{product.name}</h3>

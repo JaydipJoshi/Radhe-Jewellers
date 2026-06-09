@@ -115,5 +115,30 @@
     max-width: 100%;
     height: auto;
   }
+
+  /* ── Skeleton shimmer ──────────────────────────────────────────────────────
+     Used by ImageWithSkeleton. A diagonal gradient wave sweeps left-to-right
+     over the muted base colour, matching the warm cream palette of the site. */
+  @keyframes shimmer {
+    0%   { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  .skeleton-shimmer {
+    background: linear-gradient(
+      105deg,
+      transparent 20%,
+      hsl(var(--secondary) / 0.8) 50%,
+      transparent 80%
+    );
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+
+  /* Respect reduced-motion preference — stop the shimmer sweep */
+  @media (prefers-reduced-motion: reduce) {
+    .skeleton-shimmer {
+      animation: none;
+    }
+  }
 }
 

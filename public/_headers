@@ -1,0 +1,26 @@
+## Radhe Jewellers — HTTP Headers for Vercel / Netlify
+
+# ── Static assets: immutable cache (1 year) ──────────────────────────────
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# ── Public files: moderate cache ─────────────────────────────────────────
+/favicon.png
+  Cache-Control: public, max-age=86400
+
+/og-image.jpg
+  Cache-Control: public, max-age=86400
+
+# ── SEO files: short cache so changes propagate quickly ──────────────────
+/robots.txt
+  Cache-Control: public, max-age=3600
+
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+
+# ── All pages: security headers ──────────────────────────────────────────
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(self)

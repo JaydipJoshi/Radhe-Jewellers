@@ -1,8 +1,14 @@
+# robots.txt — Radhe Jewellers (https://radhejewellers.in)
+# Last updated: 2026-06-09
+
+# Allow all major crawlers
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 10
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 10
 
 User-agent: Twitterbot
 Allow: /
@@ -10,7 +16,18 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# Allow all others
 User-agent: *
 Allow: /
 
+# Block common non-content paths
+Disallow: /404
+
+# Sitemap
 Sitemap: https://radhejewellers.in/sitemap.xml

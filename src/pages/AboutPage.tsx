@@ -4,6 +4,8 @@ import { MessageCircle } from "lucide-react";
 import { whatsappLink } from "@/lib/whatsapp";
 import oldShop from "@/assets/about-old-shop.jpg";
 import newShowroom from "@/assets/about-new-showroom.jpg";
+import { useSEO } from "@/hooks/useSEO";
+import ImageWithSkeleton from "@/components/site/ImageWithSkeleton";
 
 const values = [
   { k: "Honesty", v: "Transparent pricing and certified materials, always." },
@@ -12,6 +14,27 @@ const values = [
 ];
 
 const AboutPage = () => {
+  useSEO({
+    title: "About Us – Radhe Jewellers Ahmedabad | Family Jewellers Since 2014",
+    description: "Learn the story of Radhe Jewellers – a family jewellery store in Bhadaj, Ahmedabad since 2014. From a humble counter to a luxury showroom offering gold, silver & jewellery repair.",
+    canonical: "https://radhejewellers.in/about",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "@id": "https://radhejewellers.in/about",
+      "url": "https://radhejewellers.in/about",
+      "name": "About Radhe Jewellers – Family Jewellers in Ahmedabad Since 2014",
+      "description": "Radhe Jewellers began in 2014 as a small family shop in Bhadaj, Ahmedabad with a promise of honesty, craft and care. Today a luxury showroom.",
+      "inLanguage": "en-IN",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://radhejewellers.in/" },
+          { "@type": "ListItem", "position": 2, "name": "About", "item": "https://radhejewellers.in/about" }
+        ]
+      }
+    }
+  });
   return (
     <div>
       <section className="container-luxe pt-14 md:pt-20 pb-12 max-w-3xl">
@@ -42,13 +65,13 @@ const AboutPage = () => {
           {/* Image */}
           <div className="w-full md:w-5/12 shrink-0">
             <div className="group aspect-[4/5] rounded-3xl overflow-hidden shadow-elevated">
-              <img
+              <ImageWithSkeleton
                 src={oldShop}
                 alt="Radhe Jewellers original shop with a low wooden counter, 2014"
                 width={1024}
                 height={1024}
                 loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                className="transition-transform duration-700 group-hover:scale-[1.04]"
               />
             </div>
           </div>
@@ -76,13 +99,13 @@ const AboutPage = () => {
           {/* Image */}
           <div className="w-full md:w-5/12 shrink-0">
             <div className="group aspect-[4/5] rounded-3xl overflow-hidden shadow-elevated">
-              <img
+              <ImageWithSkeleton
                 src={newShowroom}
                 alt="The new Radhe Jewellers luxury showroom in Ahmedabad"
                 width={1024}
                 height={1024}
                 loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                className="transition-transform duration-700 group-hover:scale-[1.04]"
               />
             </div>
           </div>

@@ -14,7 +14,7 @@ const links = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-40 bg-background/85 backdrop-blur-md border-b border-border/60">
+    <header className="sticky top-0 z-40 bg-background/85 backdrop-blur-md border-b border-border/60" role="banner">
       <div className="container-luxe flex items-center justify-between h-16 md:h-20">
         <Link to="/" className="flex flex-col items-start leading-none" onClick={() => setOpen(false)}>
           <span className="font-serif italic text-2xl md:text-3xl tracking-wide text-foreground">
@@ -24,7 +24,7 @@ const Navbar = () => {
             Ahmedabad <span className="text-accent">·</span> Est&nbsp;2014
           </span>
         </Link>
-        <nav className="hidden lg:flex items-center gap-6 xl:gap-9">
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-9" aria-label="Main navigation">
           {links.map((l) => (
             <NavLink
               key={l.to}
@@ -49,13 +49,15 @@ const Navbar = () => {
         <button
           className="lg:hidden p-2 -mr-2"
           onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="mobile-nav"
         >
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
       {open && (
-        <div className="lg:hidden border-t border-border/60 animate-fade-in">
+        <div id="mobile-nav" className="lg:hidden border-t border-border/60 animate-fade-in" role="navigation" aria-label="Mobile navigation">
           <div className="container-luxe py-4 flex flex-col gap-1">
             {links.map((l) => (
               <NavLink

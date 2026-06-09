@@ -1,8 +1,29 @@
 import { motion } from "framer-motion";
 import { MapPin, Phone, MessageCircle, Clock, Mail } from "lucide-react";
 import { ADDRESS, PHONE_NUMBER, PHONE_TEL, MAPS_QUERY, whatsappLink } from "@/lib/whatsapp";
+import { useSEO } from "@/hooks/useSEO";
 
 const ContactPage = () => {
+  useSEO({
+    title: "Contact Radhe Jewellers – Jewellery Shop in Bhadaj, Ahmedabad",
+    description: "Visit Radhe Jewellers near Shikotar Temple, Mandvichok, Bhadaj, Ahmedabad. Open Mon–Sun 10 AM–8:30 PM. Call +91 84018 85805 or WhatsApp us.",
+    canonical: "https://radhejewellers.in/contact",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "@id": "https://radhejewellers.in/contact",
+      "url": "https://radhejewellers.in/contact",
+      "name": "Contact Radhe Jewellers – Jewellery Shop in Ahmedabad",
+      "inLanguage": "en-IN",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://radhejewellers.in/" },
+          { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://radhejewellers.in/contact" }
+        ]
+      }
+    }
+  });
   return (
     <div>
       <section className="container-luxe pt-14 md:pt-20 pb-10 max-w-2xl">
@@ -79,7 +100,7 @@ const ContactPage = () => {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.1 }} className="rounded-2xl overflow-hidden border border-border/40 shadow-soft min-h-[420px]">
           <iframe
-            title="Dhara Jewellers location"
+            title="Radhe Jewellers location on Google Maps"
             src={`https://www.google.com/maps?q=${MAPS_QUERY}&output=embed`}
             className="w-full h-full min-h-[420px]"
             loading="lazy"

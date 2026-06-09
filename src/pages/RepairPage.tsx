@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import repair from "@/assets/repair.jpg";
 import { whatsappLink, PHONE_TEL, PHONE_NUMBER } from "@/lib/whatsapp";
+import { useSEO } from "@/hooks/useSEO";
 
 const services = [
   { icon: Sparkles, title: "Polishing & cleaning", text: "Deep cleaning and mirror polish for rings, chains, bangles and idols — back to brand-new shine." },
@@ -43,6 +44,47 @@ const trust = [
 ];
 
 const RepairPage = () => {
+  useSEO({
+    title: "Jewellery Repair in Ahmedabad – Radhe Jewellers | Polishing, Resizing & Restoration",
+    description: "Expert jewellery repair services in Bhadaj, Ahmedabad: polishing, resizing, stone setting, restoration, engraving & old gold exchange. Same-day turnaround. WhatsApp or call Radhe Jewellers.",
+    canonical: "https://radhejewellers.in/repair",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://radhejewellers.in/repair",
+      "url": "https://radhejewellers.in/repair",
+      "name": "Jewellery Repair Services in Ahmedabad – Radhe Jewellers",
+      "description": "Expert jewellery repair in Bhadaj, Ahmedabad. Polishing, resizing, stone setting, old gold exchange and more.",
+      "inLanguage": "en-IN",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://radhejewellers.in/" },
+          { "@type": "ListItem", "position": 2, "name": "Repair Services", "item": "https://radhejewellers.in/repair" }
+        ]
+      },
+      "mainEntity": {
+        "@type": "Service",
+        "name": "Jewellery Repair & Services",
+        "provider": { "@id": "https://radhejewellers.in/#business" },
+        "areaServed": { "@type": "City", "name": "Ahmedabad" },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Jewellery Repair Services",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Jewellery Polishing & Cleaning" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ring Resizing & Soldering" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Jewellery Restoration & Redesign" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Stone Setting & Replacement" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Jewellery Manufacturing" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Engraving & Finishing" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Old Gold Exchange & Valuation" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gold & Silver Coin Sales" } }
+          ]
+        }
+      }
+    }
+  });
   return (
     <div>
       {/* HERO */}
@@ -68,7 +110,7 @@ const RepairPage = () => {
         </motion.div>
         <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.9, delay: 0.1 }}
           className="aspect-[5/4] rounded-xl overflow-hidden bg-secondary shadow-elevated">
-          <img src={repair} alt="Master craftsman at Radhe Jewellers repairing a piece of jewellery" className="h-full w-full object-cover" />
+          <img src={repair} alt="Master craftsman at Radhe Jewellers repairing a piece of jewellery in Bhadaj, Ahmedabad" loading="eager" {...({ fetchpriority: "high" } as any)} className="h-full w-full object-cover" />
         </motion.div>
       </section>
 

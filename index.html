@@ -3,55 +3,129 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="apple-touch-icon" href="/favicon.png" />
-    <title>Radhe Jewellers — Jewellery Shop in Bhadaj, Ahmedabad</title>
-    <meta name="description" content="Radhe Jewellers in Bhadaj — fine gold, silver and diamond jewellery, plus trusted repair services. Visit our store or chat with us on WhatsApp." />
-    <meta name="author" content="Radhe Jewellers" />
-    <meta name="keywords" content="Jewellery shop in Bhadaj, Jewellery shop near Ahmedabad, Gold jewellery Bhadaj, Radhe Jewellers, jewellery repair Bhadaj" />
-    <link rel="canonical" href="https://radhejewellers.com/" />
 
     <!-- =====================================================
-         PERFORMANCE: Resource hints — establish connections
-         early so fonts & images don't wait for DNS on 2G/3G
+         FAVICON & TOUCH ICONS
+         ===================================================== -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <link rel="shortcut icon" href="/favicon.png" />
+
+    <!-- =====================================================
+         PRIMARY META — HOME PAGE DEFAULTS
+         (each page overrides these via useSEO hook)
+         ===================================================== -->
+    <title>Radhe Jewellers – Jewellery Shop in Ahmedabad | Gold & Silver</title>
+    <meta name="description" content="Radhe Jewellers in Bhadaj, Ahmedabad – fine gold jewellery, 925 silver jewellery, 1gm gold plated pieces and trusted repair services. Visit us near Shikotar Temple, Mandvichok, Bhadaj." />
+    <meta name="author" content="Radhe Jewellers" />
+    <meta name="keywords" content="Jewellery shop in Ahmedabad, Gold jewellery Ahmedabad, Silver jewellery Ahmedabad, Jewellery repair Ahmedabad, Silver 925 jewellery, 92.5 silver jewellery, Radhe Jewellers Ahmedabad, jewellery shop Bhadaj, gold jewellery Bhadaj, 1gm gold plated jewellery" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="geo.region" content="IN-GJ" />
+    <meta name="geo.placename" content="Ahmedabad" />
+    <meta name="geo.position" content="23.0038;72.5327" />
+    <meta name="ICBM" content="23.0038, 72.5327" />
+
+    <!-- Canonical — MUST match your live domain exactly -->
+    <link rel="canonical" href="https://radhejewellers.in/" />
+
+    <!-- =====================================================
+         PERFORMANCE: Resource hints
          ===================================================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
 
-    <!-- =====================================================
-         PERFORMANCE: Theme colour avoids a flash of white
-         before CSS loads on slow connections
-         ===================================================== -->
+    <!-- Theme colour — prevents a flash of white on slow connections -->
     <meta name="theme-color" content="#F8F7F5" />
+    <meta name="msapplication-TileColor" content="#F8F7F5" />
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Radhe Jewellers — Fine Jewellery in Bhadaj" />
-    <meta property="og:description" content="Crafting timeless elegance in Bhadaj. Explore the collection or chat with us on WhatsApp." />
+    <!-- =====================================================
+         OPEN GRAPH
+         ===================================================== -->
     <meta property="og:type" content="website" />
+    <meta property="og:title" content="Radhe Jewellers – Fine Jewellery in Ahmedabad" />
+    <meta property="og:description" content="Fine gold, silver & 925 silver jewellery crafted in Bhadaj, Ahmedabad. Trusted repair services. Visit us or chat on WhatsApp." />
+    <meta property="og:url" content="https://radhejewellers.in/" />
+    <meta property="og:image" content="https://radhejewellers.in/og-image.jpg" />
+    <meta property="og:image:alt" content="Radhe Jewellers – Fine Gold & Silver Jewellery in Ahmedabad" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:site_name" content="Radhe Jewellers" />
 
-    <!-- Twitter -->
+    <!-- =====================================================
+         TWITTER / X CARD
+         ===================================================== -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Radhe Jewellers — Fine Jewellery in Bhadaj" />
-    <meta name="twitter:description" content="Fine jewellery and trusted repair services in Bhadaj, Gujarat." />
+    <meta name="twitter:title" content="Radhe Jewellers – Fine Jewellery in Ahmedabad" />
+    <meta name="twitter:description" content="Fine gold, silver & 925 silver jewellery. Trusted repair services in Bhadaj, Ahmedabad, Gujarat." />
+    <meta name="twitter:image" content="https://radhejewellers.in/og-image.jpg" />
+    <meta name="twitter:image:alt" content="Radhe Jewellers – Fine Jewellery in Ahmedabad" />
+    <meta name="twitter:site" content="@radhejewellers" />
 
+    <!-- =====================================================
+         GLOBAL JSON-LD: JewelryStore (LocalBusiness)
+         ===================================================== -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "JewelryStore",
+      "@type": ["JewelryStore", "LocalBusiness"],
+      "@id": "https://radhejewellers.in/#business",
       "name": "Radhe Jewellers",
+      "alternateName": "Radhe Jewellers Bhadaj",
+      "description": "Family-run jewellery store in Bhadaj, Ahmedabad offering fine gold jewellery, 925 silver jewellery, 1gm gold plated pieces, and expert repair services since 2014.",
+      "url": "https://radhejewellers.in/",
+      "logo": "https://radhejewellers.in/favicon.png",
+      "image": "https://radhejewellers.in/og-image.jpg",
       "telephone": "+91-8401885805",
+      "priceRange": "₹₹",
+      "currenciesAccepted": "INR",
+      "paymentAccepted": "Cash, UPI, Bank Transfer",
+      "foundingDate": "2014",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Near Shikotar Temple, opp. Panchal Vash, Mandvichok, Bhadaj Village",
+        "streetAddress": "Near Shikotar Temple, Opp. Panchal Vas, Mandvichok, Bhadaj Village",
         "addressLocality": "Ahmedabad",
         "addressRegion": "Gujarat",
         "postalCode": "382115",
         "addressCountry": "IN"
       },
-      "openingHours": "Mo-Su 10:00-20:30",
-      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "80" }
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 23.0038,
+        "longitude": 72.5327
+      },
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=Radhe+Jewellers%2C+Near+Shikotar+Temple%2C+Panchal+Vash%2C+Mandvichok%2C+Bhadaj+Village%2C+Ahmedabad",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+          "opens": "10:00",
+          "closes": "20:30"
+        }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/radhejewellers2014"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "80",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Jewellery Collection",
+        "itemListElement": [
+          { "@type": "OfferCatalog", "name": "Gold Jewellery" },
+          { "@type": "OfferCatalog", "name": "Silver Jewellery" },
+          { "@type": "OfferCatalog", "name": "925 Silver Jewellery" },
+          { "@type": "OfferCatalog", "name": "1gm Gold Plated Jewellery" },
+          { "@type": "OfferCatalog", "name": "Jewellery Repair Services" }
+        ]
+      }
     }
     </script>
   </head>

@@ -4,10 +4,55 @@ import { ArrowLeft, MessageCircle, Phone, ShieldCheck, Gem, Truck } from "lucide
 import { getProductById, products } from "@/data/products";
 import { whatsappLink, PHONE_TEL, PHONE_NUMBER } from "@/lib/whatsapp";
 import ProductCard from "@/components/site/ProductCard";
+import ImageWithSkeleton from "@/components/site/ImageWithSkeleton";
+import { useSEO } from "@/hooks/useSEO";
 
 const ProductDetailPage = () => {
   const { id } = useParams();
   const product = id ? getProductById(id) : undefined;
+
+  const pageTitle = product
+    ? `${product.name} – ${product.category} Jewellery | Radhe Jewellers Ahmedabad`
+    : "Jewellery Piece | Radhe Jewellers";
+  const pageDesc = product
+    ? `${product.description} ${product.details ? product.details.slice(0, 80) + "..." : ""} Shop ${product.category} jewellery at Radhe Jewellers, Bhadaj, Ahmedabad.`
+    : "Explore fine jewellery at Radhe Jewellers, Bhadaj, Ahmedabad.";
+  const canonical = product
+    ? `https://radhejewellers.in/product/${product.id}`
+    : "https://radhejewellers.in/collection";
+
+  const productJsonLd = product ? {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": product.name,
+    "description": product.description,
+    "image": `https://radhejewellers.in${product.image}`,
+    "brand": { "@type": "Brand", "name": "Radhe Jewellers" },
+    "category": product.category,
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/InStock",
+      "priceCurrency": "INR",
+      "seller": { "@id": "https://radhejewellers.in/#business" },
+      "url": canonical
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://radhejewellers.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Collection", "item": "https://radhejewellers.in/collection" },
+        { "@type": "ListItem", "position": 3, "name": product.name, "item": canonical }
+      ]
+    }
+  } : undefined;
+
+  useSEO({
+    title: pageTitle,
+    description: pageDesc,
+    canonical,
+    type: "product",
+    jsonLd: productJsonLd,
+  });
 
   if (!product) {
     return (
@@ -36,12 +81,21 @@ const ProductDetailPage = () => {
           className="flex flex-col gap-4"
         >
           <div className="aspect-square rounded-xl overflow-hidden bg-secondary">
-            <img src={product.image} alt={product.name} className="h-full w-full object-cover" />
+            <ImageWithSkeleton
+              src={product.image}
+              alt={product.name}
+              loading="eager"
+              {...({ fetchpriority: "high" } as any)}
+            />
           </div>
           <div className="grid grid-cols-3 gap-4">
             {[product.image, product.image, product.image].map((img, i) => (
               <div key={i} className="aspect-square rounded-lg overflow-hidden bg-secondary">
-                <img src={img} alt="" loading="lazy" className="h-full w-full object-cover" />
+                <ImageWithSkeleton
+                  src={img}
+                  alt={`${product.name} – view ${i + 1}`}
+                  loading="lazy"
+                />
               </div>
             ))}
           </div>

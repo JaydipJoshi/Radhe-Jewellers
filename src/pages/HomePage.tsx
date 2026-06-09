@@ -13,6 +13,8 @@ import silverImg from "@/assets/Silver photos/silver 1.jpg";
 import s925Img   from "@/assets/92.5 Silver/92.5  photo1.jpg";
 import platedImg from "@/assets/1gm gold plated/cat-necklaces.jpg";
 import bisLogo from "@/assets/BIS-Hallmark.svg";
+import { useSEO } from "@/hooks/useSEO";
+import ImageWithSkeleton from "@/components/site/ImageWithSkeleton";
 
 const categoryCards = [
   { name: "Gold",           image: goldImg },
@@ -33,7 +35,32 @@ const testimonials = [
   { name: "Nitesh Prajapati", text: "They restored my mother's necklace like new. So grateful for their patience and skill.", role: "Science City" },
 ];
 
+const HOME_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://radhejewellers.in/#webpage",
+  "url": "https://radhejewellers.in/",
+  "name": "Radhe Jewellers – Jewellery Shop in Ahmedabad | Gold & Silver Jewellery",
+  "description": "Shop fine gold jewellery, 925 silver jewellery and 1gm gold plated pieces at Radhe Jewellers, Bhadaj, Ahmedabad. Expert jewellery repair services.",
+  "inLanguage": "en-IN",
+  "isPartOf": { "@id": "https://radhejewellers.in/#website" },
+  "about": { "@id": "https://radhejewellers.in/#business" },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://radhejewellers.in/" }
+    ]
+  }
+};
+
 const HomePage = () => {
+  useSEO({
+    title: "Radhe Jewellers – Jewellery Shop in Ahmedabad | Gold & Silver Jewellery",
+    description: "Radhe Jewellers, Bhadaj – finest gold jewellery, 925 silver jewellery & 1gm gold plated pieces in Ahmedabad. Expert repair services. 5★ rated. Visit us near Shikotar Temple.",
+    canonical: "https://radhejewellers.in/",
+    jsonLd: HOME_JSON_LD,
+  });
+
   const featured = [
     products.find((p) => p.id === "gold-ruby-halo-ring")!,
     products.find((p) => p.id === "silver-rajputana-payal-toe-rings")!,
@@ -44,7 +71,7 @@ const HomePage = () => {
   return (
     <div className="overflow-hidden">
       {/* HERO */}
-      <section className="relative">
+      <section className="relative" aria-label="Welcome to Radhe Jewellers – Jewellery Shop in Ahmedabad">
         <div className="container-luxe pt-10 md:pt-16 pb-16 md:pb-28 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -56,10 +83,10 @@ const HomePage = () => {
               <span className="hairline" /> Bhadaj, Gujarat
             </span>
             <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.02] text-balance">
-              Crafting Timeless<br /> Elegance.
+              Crafting Timeless<br /> Elegance in Ahmedabad.
             </h1>
             <p className="text-muted-foreground text-lg max-w-md leading-relaxed">
-              A quietly beautiful collection of fine jewellery — designed to be worn, loved and passed on.
+              A quietly beautiful collection of fine gold jewellery, silver jewellery &amp; 925 silver pieces — crafted in Bhadaj, Ahmedabad to be worn, loved and passed on.
             </p>
             <div className="flex flex-wrap gap-3 pt-2">
               <Link
@@ -115,7 +142,7 @@ const HomePage = () => {
       </section>
 
       {/* CATEGORIES */}
-      <section className="py-16 md:py-24 bg-card/50 cv-auto">
+      <section className="py-16 md:py-24 bg-card/50 cv-auto" aria-label="Jewellery categories">
         <div className="container-luxe">
           <SectionHeading
             eyebrow="Explore"
@@ -133,7 +160,12 @@ const HomePage = () => {
               >
                 <Link to={`/collection?category=${cat.name}`} className="group block">
                   <div className="aspect-square rounded-xl overflow-hidden bg-secondary">
-                    <img src={cat.image} alt={cat.name} loading="lazy" className="h-full w-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.06]" />
+                    <ImageWithSkeleton
+                      src={cat.image}
+                      alt={`${cat.name} jewellery collection at Radhe Jewellers, Ahmedabad`}
+                      loading="lazy"
+                      className="transition-transform duration-[1.4s] ease-out group-hover:scale-[1.06]"
+                    />
                   </div>
                   <div className="flex items-center justify-between mt-4">
                     <h3 className="font-serif text-lg">{cat.name}</h3>
@@ -147,7 +179,7 @@ const HomePage = () => {
       </section>
 
       {/* WHY US */}
-      <section className="py-20 md:py-28 cv-auto">
+      <section className="py-20 md:py-28 cv-auto" aria-label="Why choose Radhe Jewellers">
         <div className="container-luxe">
           <SectionHeading eyebrow="Why Radhe" title="Quiet luxury, honestly made." />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-14">
@@ -172,7 +204,7 @@ const HomePage = () => {
       </section>
 
       {/* FEATURED */}
-      <section className="py-16 md:py-24 bg-card/50 cv-auto">
+      <section className="py-16 md:py-24 bg-card/50 cv-auto" aria-label="Featured jewellery pieces">
         <div className="container-luxe">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
             <SectionHeading eyebrow="Featured" title="Pieces our customers love" align="left" />
@@ -187,7 +219,7 @@ const HomePage = () => {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="py-20 md:py-28 cv-auto">
+      <section className="py-20 md:py-28 cv-auto" aria-label="Customer testimonials">
         <div className="container-luxe">
           <SectionHeading eyebrow="Testimonials" title="Words from our customers" />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-14">
@@ -236,7 +268,14 @@ const HomePage = () => {
       <section className="py-20 md:py-28 cv-auto">
         <div className="container-luxe">
           <div className="relative overflow-hidden rounded-2xl bg-card shadow-card border border-border/40 grid grid-cols-1 lg:grid-cols-2">
-            <img src={store} alt="Inside the Radhe Jewellers store in Bhadaj" loading="lazy" className="h-72 lg:h-full w-full object-cover" />
+            <div className="relative h-72 lg:h-full overflow-hidden">
+              <ImageWithSkeleton
+                src={store}
+                alt="Inside the Radhe Jewellers store in Bhadaj, Ahmedabad"
+                loading="lazy"
+                className="h-full w-full"
+              />
+            </div>
             <div className="p-10 md:p-14 flex flex-col justify-center">
               <span className="text-[11px] uppercase tracking-[0.32em] text-muted-foreground">Visit Us</span>
               <h2 className="font-serif text-3xl md:text-4xl mt-4 leading-tight text-balance">
